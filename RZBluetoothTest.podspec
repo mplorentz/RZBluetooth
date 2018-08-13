@@ -23,25 +23,14 @@ RZBluetooth is a Core Bluetooth helper with 3 primary goals:
 
   s.default_subspec = "Test"
 
-  s.subspec "Core" do |core|
-    core.source_files = "RZBluetooth/**/*.{h,m}"
-    core.public_header_files = "RZBluetooth/**/*.h"
-    core.private_header_files = "RZBluetooth/**/*+Private.h", "RZBluetooth/Command/*.h", "RZBluetooth/RZBCentralManager+CommandHelper.h"
-  end
-
-  s.subspec "Mock" do |mock|
-    mock.dependency "RZBluetooth/Core"
-    mock.source_files = "RZMockBluetooth/**/*.{h,m}"
-    mock.public_header_files = "RZMockBluetooth/**/*.h"
-    mock.private_header_files = "RZMockBluetooth/**/*+Private.h"
-  end
-
   s.subspec "Test" do |test|
-    test.dependency "RZBluetooth/Mock"
     test.frameworks = "XCTest"
     test.source_files = "RZBluetoothTests/RZBTestDefines.h",
                         "RZBluetoothTests/RZBSimulatedTestCase.{h,m}",
-                        "RZBluetoothTests/Helpers/NSRunLoop+RZBWaitFor.{h,m}"
-    test.public_header_files = "RZBluetoothTests/RZBSimulatedTestCase.h", "RZBluetoothTests/RZBTestDefines.h"
+                        "RZBluetoothTests/Helpers/NSRunLoop+RZBWaitFor.{h,m}",
+                        "RZBluetooth/**/*.{h,m}",
+                        "RZMockBluetooth/**/*.{h,m}"
+    test.public_header_files = "RZMockBluetooth/**/*.h", "RZBluetooth/**/*.h", "RZBluetoothTests/RZBSimulatedTestCase.h", "RZBluetoothTests/RZBTestDefines.h"
+    test.private_header_files = "RZMockBluetooth/**/*+Private.h", "RZBluetooth/**/*+Private.h", "RZBluetooth/Command/*.h", "RZBluetooth/RZBCentralManager+CommandHelper.h"
   end
 end
