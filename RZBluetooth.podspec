@@ -44,4 +44,11 @@ RZBluetooth is a Core Bluetooth helper with 3 primary goals:
                         "RZBluetoothTests/Helpers/NSRunLoop+RZBWaitFor.{h,m}"
     test.public_header_files = "RZBluetoothTests/RZBSimulatedTestCase.h", "RZBluetoothTests/RZBTestDefines.h"
   end
-end
+
+  s.test_spec "Tests" do |test_spec|
+    test_spec.source_files = "RZBluetoothTests/RZBTestDefines.h",
+                             "RZBluetoothTests/RZBSimulatedTestCase.{h,m}",
+                             "RZBluetoothTests/Helpers/NSRunLoop+RZBWaitFor.{h,m}"
+    test_spec.dependency "RZBluetooth/Mock"
+    test_spec.public_header_files = "RZBluetoothTests/RZBSimulatedTestCase.h", "RZBluetoothTests/RZBTestDefines.h"
+  end
