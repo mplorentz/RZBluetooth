@@ -52,3 +52,4 @@ RZBluetooth is a Core Bluetooth helper with 3 primary goals:
     test_spec.dependency "RZBluetooth/Mock"
     test_spec.public_header_files = "RZBluetoothTests/RZBSimulatedTestCase.h", "RZBluetoothTests/RZBTestDefines.h"
   end
+end
